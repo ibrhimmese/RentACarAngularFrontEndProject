@@ -1,0 +1,101 @@
+<!-- <div class="row">
+    <div class="col-md-3">
+     <app-brands></app-brands>
+     <app-colors></app-colors>
+    </div>
+    <div class="col-md-9"> -->
+<div class="container">
+  <div class="mb-3">
+    <div class="row">
+      <div class="col-md-3">
+        <br />
+        <!-- marka -->
+      </div>
+      <div class="col-md-3">
+        <br />
+        <!-- renk -->
+      </div>
+
+      <div class="col-md-2">
+        <br />
+        <!-- filtrele butonu -->
+      </div>
+
+      <div class="col-md-2">
+        <br />
+        <!-- temizle butonu -->
+      </div>
+
+      <div class="col-md-2">
+        <br />
+        <input
+          type="text"
+          [(ngModel)]="filterText"
+          class="form-control"
+          id="filterText"
+          placeholder="Araç Ara"
+        />
+        <br />
+        <!-- <div *ngIf="filterText.length > 2" class="alert alert-success">
+          {{ filterText }} araması yaptınız
+        </div> -->
+        <!-- <label for="filterText" class="form-label"></label> -->
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div *ngFor="let c of cars | filterPipe : filterText" class="col-md-4 mb-4">
+      <div class="card" style="width: 18rem; ">
+        <img
+          style="width: 286px; height: 240px"
+          src="./assets/img/{{ c.mainImageUrl }}"
+          class="card-img-top"
+          alt="..."
+        />
+        <div
+          class="card-body"
+          style="display: flex; justify-content: center; align-items: center"
+        >
+          <li class="list-group-item">
+            <b style="color: rgb(72, 71, 71)"
+              >{{ c.brandName }} {{ c.description }}</b
+            >
+          </li>
+        </div>
+        <ul
+          class="list-group list-group-flush"
+          style="display: flex; justify-content: center; align-items: center;"
+        >
+          <li class="list-group-item">
+            <i><b>Araç Modeli: </b></i>{{ c.description }}
+          </li>
+          <li class="list-group-item">
+            <i><b>Araç Rengi : </b></i>{{ c.colorName }}
+          </li>
+          <li class="list-group-item">
+            <i><b>Araç Günlük Fiyat: </b></i>{{ c.dailyPrice }}
+          </li>
+          <li class="list-group-item">
+            <i><b>Araç Model Yılı: </b></i>{{ c.modelYear }}
+          </li>
+        </ul>
+        <div
+          class="card-body"
+          style="display: flex; justify-content: center; align-items: center"
+        >
+          <button
+            (click)="setCurrentCar(c)"
+            routerLink="/cars/car/{{ c.carId }}"
+            type="button"
+            class="btn btn-outline-success"
+          >
+            Araç Detayını Görüntüle
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- </div>
+  </div> -->

@@ -1,0 +1,19 @@
+<br>
+
+<div>
+    <ul class="list-group">
+       
+        <li [class]="getAllColorClass()" style="cursor: pointer; background-color: green; color:white" routerLink="/colors/">Tüm Renkler</li>
+       
+        <div class="mb-3">
+          <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Renk Ara">
+        </div>
+        <li (click)="setCurrentColor(c)"
+         routerLink="/cars/color/{{c.id}}"
+         *ngFor="let c of colors | colorFilterPipe:filterText"
+         [class]="getCurrentColorClass(c)"
+         style="cursor: pointer;">
+         {{c.name}}</li>
+      </ul>
+    
+    </div>

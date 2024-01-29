@@ -1,0 +1,20 @@
+<br><br><br><br>
+<div>
+<ul class="list-group">
+   
+    <li [class]="getAllBrandClass()" style="cursor: pointer; background-color: green; color:white" routerLink="/cars/">Tüm Araçlar</li>
+    <div class="mb-3">
+      <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Marka Ara">
+    </div>
+    <li (click)="setCurrentBrand(b)"
+     routerLink="/cars/brand/{{b.id}}"
+     *ngFor="let b of brands |brandFilterPipe:filterText"
+     [class]="getCurrentBrandClass(b)"
+     style="cursor: pointer;">
+     {{b.name}}</li>
+  </ul>
+
+</div>
+
+
+ <!-- <h5 *ngIf="currentBrand">{{currentBrand.name}}</h5>  -->
